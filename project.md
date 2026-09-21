@@ -40,10 +40,49 @@ GUI управления (frontend/админка);
 
 ### Компоненты, взаимодействия и границы доверия
 
-<Короткий список или простая схема: основные компоненты, внешние системы, потоки данных и места, где меняется уровень доверия.>
-<Даня, сделай красоту за пиво.>
-<Все по MVP - тут планируем API-сервис, URL Parser-модуль, клиент БД>
-<Прмиерные схемы апи-запросов: POST /api/shorten -> API Service -> Database ||| GET /{alias}?utm=... -> API Service (URL Parser) -> Редирект>
+**Контекстный уровень:** показывает взаимодействие пользователей с внешним API и перенаправление на сторонние ресурсы.
+Здесь проходит главная граница доверия между недоверенной внешней средой и нашим приложением.
+```mermaid
+---
+config:
+  layout: elk
+---
+flowchart LR
+    CLIENT["Внешний клиент"] -->|"GET /{alias}"| API["API Service (FastAPI)"]
+    MANAGER["Маркетолог/Инженер"] -->|"POST /shorten, DELETE"| API
+    
+    API -->|"Чтение / Запись"| DB[("Локальная БД (SQLite)")]
+    API -.->|"Редирект"| TARGET["Целевой внешний ресурс"]
+```
+
+**Уровень компонентов**: раскрывает внутреннее устройство DaSHorter. 
+Вся бизнес-логика (URL Parser, Token Manager, DB Client) находится внутри единой границы доверия сервера. Валидация всех внешних данных (incl. urllib.parse) 
+строго инкапсулирована внутри сервиса до момента обращения к БД.
+
+```mermaid
+flowchart TD
+    CLIENT["Клиент / Маркетолог"]
+
+    subgraph DaSHorter ["DaSHorter (FastAPI Application)"]
+        ROUTER["API Router\n(Маршрутизация GET/POST/DELETE)"]
+        PARSER["URL Parser Module\n(Валидация, проброс UTM)"]
+        TOKEN_MGR["Token Manager\n(Проверка Secret-токена)"]
+        DB_CLIENT["Database Client\n(SQLite Driver)"]
+    end
+
+    DB[("Локальная БД\n(SQLite)")]
+
+    CLIENT -->|"1. POST /shorten\n2. GET /{alias}?utm=...\n3. DELETE /{alias}"| ROUTER
+
+    ROUTER -->|"Валидация длинного URL\nСборка редиректа"| PARSER
+    ROUTER -->|"Проверка прав на удаление"| TOKEN_MGR
+    
+    PARSER -->|"Данные валидны"| DB_CLIENT
+    TOKEN_MGR -->|"Токен совпал"| DB_CLIENT
+    
+    DB_CLIENT -->|"SQL запросы"| DB
+```
+
 
 ### Активы и существенные риски
 
