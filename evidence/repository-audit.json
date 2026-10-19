@@ -1,0 +1,868 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-19",
+  "timezone": "Europe/Moscow",
+  "prepared_at": "2026-10-19T17:17:20.5864432+03:00",
+  "repository": "https://github.com/daniil-novel/HighlandTech",
+  "inspected_commit": "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+  "scope": "Read-only Git tree/history and saved public GitHub API observations; static interpretation of Dockerfile, docker-compose.yml and requirements.txt.",
+  "exclusions": [
+    "No application, container, dependency installation or test execution.",
+    "No SAST, SCA, DAST, fuzzing, secret scanning or vulnerability exploitation.",
+    "No GitHub settings mutations or writes; no direct-push test.",
+    "No independent human peer review; no release approval.",
+    "No inspection of private laptops, original GitLab administration or EIOS submission."
+  ],
+  "findings": {
+    "tracked_files_count": 8,
+    "reachable_commits_at_inspected_commit": 20,
+    "merge_commits_at_inspected_commit": 7,
+    "historical_gitlab_slice_commits": 13,
+    "historical_gitlab_slice_merges": 5,
+    "application_source_in_inspected_tree": false,
+    "application_main_module_in_inspected_tree": false,
+    "automated_tests_in_inspected_tree": false,
+    "github_workflow_files_in_inspected_tree": false,
+    "gitlab_ci_file_in_inspected_tree": false,
+    "evidence_directory_in_inspected_tree": false,
+    "python_dependencies_exactly_locked": false,
+    "container_base_image_digest_pinned": false,
+    "dockerignore_in_inspected_tree": false,
+    "github_main_protected_at_capture": false,
+    "github_rulesets_at_capture": [],
+    "github_actions_runs_total_at_capture": 0,
+    "github_tags_at_capture": [],
+    "github_pr1_submitted_reviews_at_capture": [],
+    "github_pr1_author": "CapOfCats",
+    "github_pr1_merger": "CapOfCats",
+    "first_commit_contains_only_readme": true
+  },
+  "git_observations": [
+    {
+      "id": "baseline_sha",
+      "command": "git rev-parse e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "rev-parse",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ]
+    },
+    {
+      "id": "baseline_tree",
+      "command": "git ls-tree -r --long e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "ls-tree",
+        "-r",
+        "--long",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "100644 blob 3fc2da4b61adc9fd57bed0c3c580f50feadbf511     189\tDockerfile",
+        "100644 blob 74a5309ba38e4aa688748028e988d5eb6a52614d    6029\tREADME.md",
+        "100644 blob c5b1d6c0a3c324f74dd29e9173ed98db7def50f2    2169\tchernoviki_obsujdeniy/daragan_kartochka.md",
+        "100644 blob fd6cbed0a0076ea202af1407779d7503324803f0     694\tchernoviki_obsujdeniy/frame_requirements.txt",
+        "100644 blob 6ee76419fa006baffb1194ea12b99d291d104b33    3699\tchernoviki_obsujdeniy/privezentsev_kartochka.md",
+        "100644 blob 656112b7046bdc6206a2ef8810773165cd52304f     232\tdocker-compose.yml",
+        "100644 blob ef5e3769934aea1b1005b558ea62277269363170   47024\tproject.md",
+        "100644 blob c890bf6e30af0354851b3108156fe810b57ceda4      58\trequirements.txt"
+      ]
+    },
+    {
+      "id": "baseline_commit_count",
+      "command": "git rev-list --count e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "rev-list",
+        "--count",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "20"
+      ]
+    },
+    {
+      "id": "baseline_merge_count",
+      "command": "git rev-list --count --merges e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "rev-list",
+        "--count",
+        "--merges",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "7"
+      ]
+    },
+    {
+      "id": "baseline_history",
+      "command": "git log '--format=%h %ad %an <%ae> %s' --date=iso-strict e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "log",
+        "--format=%h %ad %an <%ae> %s",
+        "--date=iso-strict",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "e2f2bd4 2026-10-13T17:07:48+03:00 CapOfCats <92954032+CapOfCats@users.noreply.github.com> Merge pull request #1 from daniil-novel/Daragan/sec-sdlc-fixes",
+        "c8b33a2 2026-10-13T13:32:33+03:00 CapOfCats <daniil.daragan@mail.ru> docs: integrate NIST SSDF mappings into Section 4",
+        "f77f23f 2026-10-02T21:14:37+00:00 Daniil Privezentsev <daprivezentsev@edu.hse.ru> Merge branch 'Privezentsev/Tasks2-5' into 'main'",
+        "402d6c9 2026-10-02T20:38:52+03:00 Daniil Privezentsev <daprivezentsev@edu.hse.ru> Define merge rules, exceptions and SCA method (task 5)",
+        "725602a 2026-10-02T10:16:08+03:00 Daniil Privezentsev <daprivezentsev@edu.hse.ru> Document Git infrastructure findings (task 4)",
+        "4e9f0cd 2026-10-01T18:23:41+03:00 Daniil Privezentsev <daprivezentsev@edu.hse.ru> Complete NIST SSDF adaptation (task 3)",
+        "36988ef 2026-10-01T09:47:16+03:00 Daniil Privezentsev <daprivezentsev@edu.hse.ru> Add GOST framework evaluation (task 2)",
+        "cff2b63 2026-10-01T00:12:59+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Merge branch 'Task5/Daragan' into 'main'",
+        "724408c 2026-10-01T03:10:40+03:00 CapOfCats <daniil.daragan@mail.ru> done QA-part of abst. 4-5",
+        "36ce919 2026-09-30T22:51:11+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Merge branch 'Daragan/Task4' into 'main'",
+        "79bcf3a 2026-10-01T01:48:35+03:00 CapOfCats <daniil.daragan@mail.ru> added requirements, files for docker, documented current state of product",
+        "6c2247a 2026-09-29T00:20:45+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Merge branch 'Daragan/Task3' into 'main'",
+        "9471c1e 2026-09-29T00:20:45+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Расширены описания (до карточек) основных положений NIST SSDF",
+        "f3fe981 2026-09-28T23:24:41+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Merge branch 'Daragan/Task2' into 'main'",
+        "55ab471 2026-09-28T23:24:41+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Daragan/task2",
+        "7b10e30 2026-09-28T23:15:21+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Merge branch 'Daragan/Task2' into 'main'",
+        "1011259 2026-09-28T23:15:21+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Daragan/task2",
+        "f735351 2026-09-22T02:07:06+03:00 CapOfCats <daniil.daragan@mail.ru> diagrams",
+        "5a1a8d6 2026-09-18T02:31:32+03:00 CapOfCats <daniil.daragan@mail.ru> added first project.md",
+        "fc40248 2026-09-15T16:01:22+00:00 Daniil Daragan <dddaragan@edu.hse.ru> Initial commit"
+      ]
+    },
+    {
+      "id": "baseline_first_commit_tree",
+      "command": "git ls-tree -r --name-only fc40248d50ab796e15973985ff08279df67a5e46",
+      "arguments": [
+        "ls-tree",
+        "-r",
+        "--name-only",
+        "fc40248d50ab796e15973985ff08279df67a5e46"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "README.md"
+      ]
+    },
+    {
+      "id": "baseline_file_history",
+      "command": "git log --name-status '--format=%h %s' e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+      "arguments": [
+        "log",
+        "--name-status",
+        "--format=%h %s",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "e2f2bd4 Merge pull request #1 from daniil-novel/Daragan/sec-sdlc-fixes",
+        "c8b33a2 docs: integrate NIST SSDF mappings into Section 4",
+        "",
+        "M\tproject.md",
+        "f77f23f Merge branch 'Privezentsev/Tasks2-5' into 'main'",
+        "402d6c9 Define merge rules, exceptions and SCA method (task 5)",
+        "",
+        "M\tproject.md",
+        "725602a Document Git infrastructure findings (task 4)",
+        "",
+        "M\tproject.md",
+        "4e9f0cd Complete NIST SSDF adaptation (task 3)",
+        "",
+        "M\tproject.md",
+        "36988ef Add GOST framework evaluation (task 2)",
+        "",
+        "A\tchernoviki_obsujdeniy/privezentsev_kartochka.md",
+        "cff2b63 Merge branch 'Task5/Daragan' into 'main'",
+        "724408c done QA-part of abst. 4-5",
+        "",
+        "M\tproject.md",
+        "36ce919 Merge branch 'Daragan/Task4' into 'main'",
+        "79bcf3a added requirements, files for docker, documented current state of product",
+        "",
+        "A\tDockerfile",
+        "A\tdocker-compose.yml",
+        "M\tproject.md",
+        "A\trequirements.txt",
+        "6c2247a Merge branch 'Daragan/Task3' into 'main'",
+        "9471c1e Расширены описания (до карточек) основных положений NIST SSDF",
+        "",
+        "M\tproject.md",
+        "f3fe981 Merge branch 'Daragan/Task2' into 'main'",
+        "55ab471 Daragan/task2",
+        "",
+        "M\tproject.md",
+        "7b10e30 Merge branch 'Daragan/Task2' into 'main'",
+        "1011259 Daragan/task2",
+        "",
+        "A\tchernoviki_obsujdeniy/daragan_kartochka.md",
+        "A\tchernoviki_obsujdeniy/frame_requirements.txt",
+        "f735351 diagrams",
+        "",
+        "M\tproject.md",
+        "5a1a8d6 added first project.md",
+        "",
+        "A\tproject.md",
+        "fc40248 Initial commit",
+        "",
+        "A\tREADME.md"
+      ]
+    },
+    {
+      "id": "source_test_ci_evidence_history",
+      "command": "git log --all '--format=%h %s' -- '*.py' 'tests/*' '.github/*' .gitlab-ci.yml 'evidence/*'",
+      "arguments": [
+        "log",
+        "--all",
+        "--format=%h %s",
+        "--",
+        "*.py",
+        "tests/*",
+        ".github/*",
+        ".gitlab-ci.yml",
+        "evidence/*"
+      ],
+      "exit_code": 0,
+      "output_lines": []
+    },
+    {
+      "id": "historical_gitlab_slice_commit_count",
+      "command": "git rev-list --count cff2b63b864833805a636e21d2a160df8d227124",
+      "arguments": [
+        "rev-list",
+        "--count",
+        "cff2b63b864833805a636e21d2a160df8d227124"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "13"
+      ]
+    },
+    {
+      "id": "historical_gitlab_slice_merge_count",
+      "command": "git rev-list --count --merges cff2b63b864833805a636e21d2a160df8d227124",
+      "arguments": [
+        "rev-list",
+        "--count",
+        "--merges",
+        "cff2b63b864833805a636e21d2a160df8d227124"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "5"
+      ]
+    },
+    {
+      "id": "local_tags_at_inspection",
+      "command": "git tag -n",
+      "arguments": [
+        "tag",
+        "-n"
+      ],
+      "exit_code": 0,
+      "output_lines": []
+    },
+    {
+      "id": "local_remote_tracking_branches_at_inspection",
+      "command": "git for-each-ref '--format=%(refname:short) %(objectname)' refs/remotes/origin/",
+      "arguments": [
+        "for-each-ref",
+        "--format=%(refname:short) %(objectname)",
+        "refs/remotes/origin/"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "origin/Daragan/sec-sdlc-fixes c8b33a2b6cff24e36f59e7e9d01083a16ab43d20",
+        "origin e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+        "origin/Privezentsev/Tasks2-5 402d6c9b8f169e49a2b4b70695ac3da2c624bb31",
+        "origin/main e2f2bd4554550234e9e93838dcf7b9f0e2aea01c"
+      ]
+    },
+    {
+      "id": "dockerfile",
+      "command": "git show e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:Dockerfile",
+      "arguments": [
+        "show",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:Dockerfile"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "FROM python:3.11-slim",
+        "",
+        "WORKDIR /app",
+        "",
+        "COPY requirements.txt .",
+        "RUN pip install --no-cache-dir -r requirements.txt",
+        "",
+        "COPY . .",
+        "",
+        "CMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]"
+      ]
+    },
+    {
+      "id": "compose",
+      "command": "git show e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:docker-compose.yml",
+      "arguments": [
+        "show",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:docker-compose.yml"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "version: '3.8'",
+        "",
+        "services:",
+        "  api:",
+        "    build: .",
+        "    container_name: dashorter_api",
+        "    ports:",
+        "      - \"8000:8000\"",
+        "    volumes:",
+        "      - ./data:/app/data",
+        "    environment:",
+        "      - DB_PATH=/app/data/dashorter.db",
+        "    restart: unless-stopped"
+      ]
+    },
+    {
+      "id": "requirements",
+      "command": "git show e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:requirements.txt",
+      "arguments": [
+        "show",
+        "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c:requirements.txt"
+      ],
+      "exit_code": 0,
+      "output_lines": [
+        "fastapi>=0.110.0",
+        "uvicorn[standard]>=0.28.0",
+        "pydantic>=2.6.0"
+      ]
+    }
+  ],
+  "github_observations": [
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/branches/main",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:09:51.6244925+03:00",
+      "response": {
+        "name": "main",
+        "commit": {
+          "sha": "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+          "node_id": "C_kwDOVGkMLNoAKGUyZjJiZDQ1NTQ1NTAyMzRlOWU5MzgzOGRjZjdiOWYwZTJhZWEwMWM",
+          "commit": {
+            "author": {
+              "name": "CapOfCats",
+              "email": "92954032+CapOfCats@users.noreply.github.com",
+              "date": "2026-10-13T14:07:48Z"
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "date": "2026-10-13T14:07:48Z"
+            },
+            "message": "Merge pull request #1 from daniil-novel/Daragan/sec-sdlc-fixes\n\ndocs: integrate NIST SSDF mappings into Section 4",
+            "tree": {
+              "sha": "1e6b524ec0c99e95052309209c40a21192550066",
+              "url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/trees/1e6b524ec0c99e95052309209c40a21192550066"
+            },
+            "url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/commits/e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+            "comment_count": 0,
+            "verification": {
+              "verified": true,
+              "reason": "valid",
+              "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzjs1CRC1aQ7uu5UhlAAAnMAQAGDC1tdh7Au3dojiqIiRAaCN\nq48llwPdi+v7tKofu0w3d+ttJCxiTOjZSDbeyCAzhIDw2R83SpGwPsr7Uo9y4HBo\n3hxFmnlfcPPR2kjMl/VNQBofyCHF8tah0fvpTnBfBENcvbCG2zZi3w7lRfPrL8DU\nuHiL2U/0hPOT/HZ1UNgZH5Jxy+UC+RhKIpwr3OO+AvjaLGlrTgtb7+5pqEDa0eRi\nZAUYPo9CFb7NHqrhnUHSLy+laQhCJPAO9+J6iRlPHbESNCV2O5MYGRIs9LnfTzVi\nJD2Hqjs9bs4hJT1eKsm+jF/bLh8mtOG6ypJWk0RL65Z6BWjA6Zuzblk1weayFdhS\n/QSKbC6azeCeRC062nQoEhj01DJyTXM1djQhsqttR6x5JVd8CdjnBvopXQJlPG4X\nwt4adphjou5NDBx0O7PwcrqdaSZLItJI7rzi3uzEFmAkyHcg/KD3NWaepxFNlSZL\nxvWU9LOmAxk8wnp/bpq5b0NgeL+joBJuUEnk6AnAVIU58eIIazE/FzsqklBQs4qi\nogp1xoQ6b8WX3LrXq6XcZBPweGmLbKByqx/kDhWM1UjvcID1BlyxLbmcxAP8UKJM\ngbqpn1nyBCGAmho/M+BmhHmiDW8XOPUzUMbwBC5FtkjAAoj9d2idSdwr6vR9hByg\nULnhLj5WkiCqGB1o04xq\n=+SM8\n-----END PGP SIGNATURE-----\n",
+              "payload": "tree 1e6b524ec0c99e95052309209c40a21192550066\nparent f77f23f9a981be946b58c1c87db3e8673e81d718\nparent c8b33a2b6cff24e36f59e7e9d01083a16ab43d20\nauthor CapOfCats <92954032+CapOfCats@users.noreply.github.com> 1791900468 +0300\ncommitter GitHub <noreply@github.com> 1791900468 +0300\n\nMerge pull request #1 from daniil-novel/Daragan/sec-sdlc-fixes\n\ndocs: integrate NIST SSDF mappings into Section 4",
+              "verified_at": "2026-10-13T14:07:50Z"
+            }
+          },
+          "url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits/e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+          "html_url": "https://github.com/daniil-novel/HighlandTech/commit/e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+          "comments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits/e2f2bd4554550234e9e93838dcf7b9f0e2aea01c/comments",
+          "author": {
+            "login": "CapOfCats",
+            "id": 92954032,
+            "node_id": "U_kgDOBYpdsA",
+            "avatar_url": "https://avatars.githubusercontent.com/u/92954032?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/CapOfCats",
+            "html_url": "https://github.com/CapOfCats",
+            "followers_url": "https://api.github.com/users/CapOfCats/followers",
+            "following_url": "https://api.github.com/users/CapOfCats/following{/other_user}",
+            "gists_url": "https://api.github.com/users/CapOfCats/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/CapOfCats/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/CapOfCats/subscriptions",
+            "organizations_url": "https://api.github.com/users/CapOfCats/orgs",
+            "repos_url": "https://api.github.com/users/CapOfCats/repos",
+            "events_url": "https://api.github.com/users/CapOfCats/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/CapOfCats/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "committer": {
+            "login": "web-flow",
+            "id": 19864447,
+            "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+            "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/web-flow",
+            "html_url": "https://github.com/web-flow",
+            "followers_url": "https://api.github.com/users/web-flow/followers",
+            "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+            "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+            "organizations_url": "https://api.github.com/users/web-flow/orgs",
+            "repos_url": "https://api.github.com/users/web-flow/repos",
+            "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/web-flow/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "parents": [
+            {
+              "sha": "f77f23f9a981be946b58c1c87db3e8673e81d718",
+              "url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits/f77f23f9a981be946b58c1c87db3e8673e81d718",
+              "html_url": "https://github.com/daniil-novel/HighlandTech/commit/f77f23f9a981be946b58c1c87db3e8673e81d718"
+            },
+            {
+              "sha": "c8b33a2b6cff24e36f59e7e9d01083a16ab43d20",
+              "url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits/c8b33a2b6cff24e36f59e7e9d01083a16ab43d20",
+              "html_url": "https://github.com/daniil-novel/HighlandTech/commit/c8b33a2b6cff24e36f59e7e9d01083a16ab43d20"
+            }
+          ]
+        },
+        "_links": {
+          "self": "https://api.github.com/repos/daniil-novel/HighlandTech/branches/main",
+          "html": "https://github.com/daniil-novel/HighlandTech/tree/main"
+        },
+        "protected": false,
+        "protection": {
+          "enabled": false,
+          "required_status_checks": {
+            "enforcement_level": "off",
+            "contexts": [],
+            "checks": []
+          }
+        },
+        "protection_url": "https://api.github.com/repos/daniil-novel/HighlandTech/branches/main/protection"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/rulesets",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:09:59.5315186+03:00",
+      "response": []
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/actions/runs",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:09:52.4460496+03:00",
+      "response": {
+        "total_count": 0,
+        "workflow_runs": []
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:10:05.4378638+03:00",
+      "response": {
+        "url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1",
+        "id": 4843832223,
+        "node_id": "PR_kwDOVGkMLM8AAAABILcDnw",
+        "html_url": "https://github.com/daniil-novel/HighlandTech/pull/1",
+        "diff_url": "https://github.com/daniil-novel/HighlandTech/pull/1.diff",
+        "patch_url": "https://github.com/daniil-novel/HighlandTech/pull/1.patch",
+        "issue_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/1",
+        "commits_url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1/commits",
+        "review_comments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1/comments",
+        "review_comment_url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/comments{/number}",
+        "comments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/1/comments",
+        "statuses_url": "https://api.github.com/repos/daniil-novel/HighlandTech/statuses/c8b33a2b6cff24e36f59e7e9d01083a16ab43d20",
+        "number": 1,
+        "state": "closed",
+        "locked": false,
+        "title": "docs: integrate NIST SSDF mappings into Section 4",
+        "user": {
+          "login": "CapOfCats",
+          "id": 92954032,
+          "node_id": "U_kgDOBYpdsA",
+          "avatar_url": "https://avatars.githubusercontent.com/u/92954032?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/CapOfCats",
+          "html_url": "https://github.com/CapOfCats",
+          "followers_url": "https://api.github.com/users/CapOfCats/followers",
+          "following_url": "https://api.github.com/users/CapOfCats/following{/other_user}",
+          "gists_url": "https://api.github.com/users/CapOfCats/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/CapOfCats/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/CapOfCats/subscriptions",
+          "organizations_url": "https://api.github.com/users/CapOfCats/orgs",
+          "repos_url": "https://api.github.com/users/CapOfCats/repos",
+          "events_url": "https://api.github.com/users/CapOfCats/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/CapOfCats/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": null,
+        "labels": [],
+        "milestone": null,
+        "active_lock_reason": null,
+        "created_at": "2026-10-13T13:17:51Z",
+        "updated_at": "2026-10-13T14:07:49Z",
+        "closed_at": "2026-10-13T14:07:49Z",
+        "merged_at": "2026-10-13T14:07:49Z",
+        "merge_commit_sha": "e2f2bd4554550234e9e93838dcf7b9f0e2aea01c",
+        "assignee": null,
+        "assignees": [],
+        "requested_reviewers": [],
+        "requested_teams": [],
+        "head": {
+          "label": "daniil-novel:Daragan/sec-sdlc-fixes",
+          "ref": "Daragan/sec-sdlc-fixes",
+          "repo": {
+            "id": 1416170540,
+            "node_id": "R_kgDOVGkMLA",
+            "name": "HighlandTech",
+            "full_name": "daniil-novel/HighlandTech",
+            "owner": {
+              "login": "daniil-novel",
+              "id": 80037801,
+              "node_id": "MDQ6VXNlcjgwMDM3ODAx",
+              "avatar_url": "https://avatars.githubusercontent.com/u/80037801?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/daniil-novel",
+              "html_url": "https://github.com/daniil-novel",
+              "followers_url": "https://api.github.com/users/daniil-novel/followers",
+              "following_url": "https://api.github.com/users/daniil-novel/following{/other_user}",
+              "gists_url": "https://api.github.com/users/daniil-novel/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/daniil-novel/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/daniil-novel/subscriptions",
+              "organizations_url": "https://api.github.com/users/daniil-novel/orgs",
+              "repos_url": "https://api.github.com/users/daniil-novel/repos",
+              "events_url": "https://api.github.com/users/daniil-novel/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/daniil-novel/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "private": false,
+            "fork": false,
+            "archived": false,
+            "disabled": false,
+            "description": "HighlandTech / DaSHorter: documentation and configuration for a Secure SDLC course project.",
+            "homepage": null,
+            "language": "Dockerfile",
+            "visibility": "public",
+            "is_template": false,
+            "topics": [],
+            "forks_count": 0,
+            "forks": 0,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "watchers": 0,
+            "open_issues_count": 0,
+            "open_issues": 0,
+            "size": 27,
+            "default_branch": "main",
+            "has_issues": true,
+            "has_projects": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_downloads": false,
+            "has_discussions": false,
+            "has_pull_requests": true,
+            "pushed_at": "2026-10-13T14:07:49Z",
+            "created_at": "2026-10-12T21:57:31Z",
+            "updated_at": "2026-10-13T14:07:54Z",
+            "allow_forking": true,
+            "web_commit_signoff_required": false,
+            "pull_request_creation_policy": "all",
+            "license": null,
+            "url": "https://api.github.com/repos/daniil-novel/HighlandTech",
+            "html_url": "https://github.com/daniil-novel/HighlandTech",
+            "archive_url": "https://api.github.com/repos/daniil-novel/HighlandTech/{archive_format}{/ref}",
+            "assignees_url": "https://api.github.com/repos/daniil-novel/HighlandTech/assignees{/user}",
+            "blobs_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/blobs{/sha}",
+            "branches_url": "https://api.github.com/repos/daniil-novel/HighlandTech/branches{/branch}",
+            "collaborators_url": "https://api.github.com/repos/daniil-novel/HighlandTech/collaborators{/collaborator}",
+            "comments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/comments{/number}",
+            "commits_url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits{/sha}",
+            "compare_url": "https://api.github.com/repos/daniil-novel/HighlandTech/compare/{base}...{head}",
+            "contents_url": "https://api.github.com/repos/daniil-novel/HighlandTech/contents/{+path}",
+            "contributors_url": "https://api.github.com/repos/daniil-novel/HighlandTech/contributors",
+            "deployments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/deployments",
+            "downloads_url": "https://api.github.com/repos/daniil-novel/HighlandTech/downloads",
+            "events_url": "https://api.github.com/repos/daniil-novel/HighlandTech/events",
+            "forks_url": "https://api.github.com/repos/daniil-novel/HighlandTech/forks",
+            "git_commits_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/commits{/sha}",
+            "git_refs_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/refs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/tags{/sha}",
+            "git_url": "git://github.com/daniil-novel/HighlandTech.git",
+            "issue_comment_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/comments{/number}",
+            "issue_events_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/events{/number}",
+            "issues_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues{/number}",
+            "keys_url": "https://api.github.com/repos/daniil-novel/HighlandTech/keys{/key_id}",
+            "labels_url": "https://api.github.com/repos/daniil-novel/HighlandTech/labels{/name}",
+            "languages_url": "https://api.github.com/repos/daniil-novel/HighlandTech/languages",
+            "merges_url": "https://api.github.com/repos/daniil-novel/HighlandTech/merges",
+            "milestones_url": "https://api.github.com/repos/daniil-novel/HighlandTech/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/daniil-novel/HighlandTech/notifications{?since,all,participating}",
+            "pulls_url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls{/number}",
+            "releases_url": "https://api.github.com/repos/daniil-novel/HighlandTech/releases{/id}",
+            "ssh_url": "git@github.com:daniil-novel/HighlandTech.git",
+            "stargazers_url": "https://api.github.com/repos/daniil-novel/HighlandTech/stargazers",
+            "statuses_url": "https://api.github.com/repos/daniil-novel/HighlandTech/statuses/{sha}",
+            "subscribers_url": "https://api.github.com/repos/daniil-novel/HighlandTech/subscribers",
+            "subscription_url": "https://api.github.com/repos/daniil-novel/HighlandTech/subscription",
+            "tags_url": "https://api.github.com/repos/daniil-novel/HighlandTech/tags",
+            "teams_url": "https://api.github.com/repos/daniil-novel/HighlandTech/teams",
+            "trees_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/trees{/sha}",
+            "clone_url": "https://github.com/daniil-novel/HighlandTech.git",
+            "mirror_url": null,
+            "hooks_url": "https://api.github.com/repos/daniil-novel/HighlandTech/hooks",
+            "svn_url": "https://github.com/daniil-novel/HighlandTech"
+          },
+          "sha": "c8b33a2b6cff24e36f59e7e9d01083a16ab43d20",
+          "user": {
+            "login": "daniil-novel",
+            "id": 80037801,
+            "node_id": "MDQ6VXNlcjgwMDM3ODAx",
+            "avatar_url": "https://avatars.githubusercontent.com/u/80037801?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/daniil-novel",
+            "html_url": "https://github.com/daniil-novel",
+            "followers_url": "https://api.github.com/users/daniil-novel/followers",
+            "following_url": "https://api.github.com/users/daniil-novel/following{/other_user}",
+            "gists_url": "https://api.github.com/users/daniil-novel/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/daniil-novel/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/daniil-novel/subscriptions",
+            "organizations_url": "https://api.github.com/users/daniil-novel/orgs",
+            "repos_url": "https://api.github.com/users/daniil-novel/repos",
+            "events_url": "https://api.github.com/users/daniil-novel/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/daniil-novel/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          }
+        },
+        "base": {
+          "label": "daniil-novel:main",
+          "ref": "main",
+          "repo": {
+            "id": 1416170540,
+            "node_id": "R_kgDOVGkMLA",
+            "name": "HighlandTech",
+            "full_name": "daniil-novel/HighlandTech",
+            "owner": {
+              "login": "daniil-novel",
+              "id": 80037801,
+              "node_id": "MDQ6VXNlcjgwMDM3ODAx",
+              "avatar_url": "https://avatars.githubusercontent.com/u/80037801?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/daniil-novel",
+              "html_url": "https://github.com/daniil-novel",
+              "followers_url": "https://api.github.com/users/daniil-novel/followers",
+              "following_url": "https://api.github.com/users/daniil-novel/following{/other_user}",
+              "gists_url": "https://api.github.com/users/daniil-novel/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/daniil-novel/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/daniil-novel/subscriptions",
+              "organizations_url": "https://api.github.com/users/daniil-novel/orgs",
+              "repos_url": "https://api.github.com/users/daniil-novel/repos",
+              "events_url": "https://api.github.com/users/daniil-novel/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/daniil-novel/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "private": false,
+            "fork": false,
+            "archived": false,
+            "disabled": false,
+            "description": "HighlandTech / DaSHorter: documentation and configuration for a Secure SDLC course project.",
+            "homepage": null,
+            "language": "Dockerfile",
+            "visibility": "public",
+            "is_template": false,
+            "topics": [],
+            "forks_count": 0,
+            "forks": 0,
+            "stargazers_count": 0,
+            "watchers_count": 0,
+            "watchers": 0,
+            "open_issues_count": 0,
+            "open_issues": 0,
+            "size": 27,
+            "default_branch": "main",
+            "has_issues": true,
+            "has_projects": true,
+            "has_wiki": true,
+            "has_pages": false,
+            "has_downloads": false,
+            "has_discussions": false,
+            "has_pull_requests": true,
+            "pushed_at": "2026-10-13T14:07:49Z",
+            "created_at": "2026-10-12T21:57:31Z",
+            "updated_at": "2026-10-13T14:07:54Z",
+            "allow_forking": true,
+            "web_commit_signoff_required": false,
+            "pull_request_creation_policy": "all",
+            "license": null,
+            "url": "https://api.github.com/repos/daniil-novel/HighlandTech",
+            "html_url": "https://github.com/daniil-novel/HighlandTech",
+            "archive_url": "https://api.github.com/repos/daniil-novel/HighlandTech/{archive_format}{/ref}",
+            "assignees_url": "https://api.github.com/repos/daniil-novel/HighlandTech/assignees{/user}",
+            "blobs_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/blobs{/sha}",
+            "branches_url": "https://api.github.com/repos/daniil-novel/HighlandTech/branches{/branch}",
+            "collaborators_url": "https://api.github.com/repos/daniil-novel/HighlandTech/collaborators{/collaborator}",
+            "comments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/comments{/number}",
+            "commits_url": "https://api.github.com/repos/daniil-novel/HighlandTech/commits{/sha}",
+            "compare_url": "https://api.github.com/repos/daniil-novel/HighlandTech/compare/{base}...{head}",
+            "contents_url": "https://api.github.com/repos/daniil-novel/HighlandTech/contents/{+path}",
+            "contributors_url": "https://api.github.com/repos/daniil-novel/HighlandTech/contributors",
+            "deployments_url": "https://api.github.com/repos/daniil-novel/HighlandTech/deployments",
+            "downloads_url": "https://api.github.com/repos/daniil-novel/HighlandTech/downloads",
+            "events_url": "https://api.github.com/repos/daniil-novel/HighlandTech/events",
+            "forks_url": "https://api.github.com/repos/daniil-novel/HighlandTech/forks",
+            "git_commits_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/commits{/sha}",
+            "git_refs_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/refs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/tags{/sha}",
+            "git_url": "git://github.com/daniil-novel/HighlandTech.git",
+            "issue_comment_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/comments{/number}",
+            "issue_events_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/events{/number}",
+            "issues_url": "https://api.github.com/repos/daniil-novel/HighlandTech/issues{/number}",
+            "keys_url": "https://api.github.com/repos/daniil-novel/HighlandTech/keys{/key_id}",
+            "labels_url": "https://api.github.com/repos/daniil-novel/HighlandTech/labels{/name}",
+            "languages_url": "https://api.github.com/repos/daniil-novel/HighlandTech/languages",
+            "merges_url": "https://api.github.com/repos/daniil-novel/HighlandTech/merges",
+            "milestones_url": "https://api.github.com/repos/daniil-novel/HighlandTech/milestones{/number}",
+            "notifications_url": "https://api.github.com/repos/daniil-novel/HighlandTech/notifications{?since,all,participating}",
+            "pulls_url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls{/number}",
+            "releases_url": "https://api.github.com/repos/daniil-novel/HighlandTech/releases{/id}",
+            "ssh_url": "git@github.com:daniil-novel/HighlandTech.git",
+            "stargazers_url": "https://api.github.com/repos/daniil-novel/HighlandTech/stargazers",
+            "statuses_url": "https://api.github.com/repos/daniil-novel/HighlandTech/statuses/{sha}",
+            "subscribers_url": "https://api.github.com/repos/daniil-novel/HighlandTech/subscribers",
+            "subscription_url": "https://api.github.com/repos/daniil-novel/HighlandTech/subscription",
+            "tags_url": "https://api.github.com/repos/daniil-novel/HighlandTech/tags",
+            "teams_url": "https://api.github.com/repos/daniil-novel/HighlandTech/teams",
+            "trees_url": "https://api.github.com/repos/daniil-novel/HighlandTech/git/trees{/sha}",
+            "clone_url": "https://github.com/daniil-novel/HighlandTech.git",
+            "mirror_url": null,
+            "hooks_url": "https://api.github.com/repos/daniil-novel/HighlandTech/hooks",
+            "svn_url": "https://github.com/daniil-novel/HighlandTech"
+          },
+          "sha": "f77f23f9a981be946b58c1c87db3e8673e81d718",
+          "user": {
+            "login": "daniil-novel",
+            "id": 80037801,
+            "node_id": "MDQ6VXNlcjgwMDM3ODAx",
+            "avatar_url": "https://avatars.githubusercontent.com/u/80037801?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/daniil-novel",
+            "html_url": "https://github.com/daniil-novel",
+            "followers_url": "https://api.github.com/users/daniil-novel/followers",
+            "following_url": "https://api.github.com/users/daniil-novel/following{/other_user}",
+            "gists_url": "https://api.github.com/users/daniil-novel/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/daniil-novel/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/daniil-novel/subscriptions",
+            "organizations_url": "https://api.github.com/users/daniil-novel/orgs",
+            "repos_url": "https://api.github.com/users/daniil-novel/repos",
+            "events_url": "https://api.github.com/users/daniil-novel/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/daniil-novel/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          }
+        },
+        "_links": {
+          "comments": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/1/comments"
+          },
+          "commits": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1/commits"
+          },
+          "statuses": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/statuses/c8b33a2b6cff24e36f59e7e9d01083a16ab43d20"
+          },
+          "html": {
+            "href": "https://github.com/daniil-novel/HighlandTech/pull/1"
+          },
+          "issue": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/issues/1"
+          },
+          "review_comments": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1/comments"
+          },
+          "review_comment": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/comments{/number}"
+          },
+          "self": {
+            "href": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1"
+          }
+        },
+        "author_association": "COLLABORATOR",
+        "auto_merge": null,
+        "draft": false,
+        "merged": true,
+        "mergeable": null,
+        "rebaseable": null,
+        "mergeable_state": "unknown",
+        "merged_by": {
+          "login": "CapOfCats",
+          "id": 92954032,
+          "node_id": "U_kgDOBYpdsA",
+          "avatar_url": "https://avatars.githubusercontent.com/u/92954032?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/CapOfCats",
+          "html_url": "https://github.com/CapOfCats",
+          "followers_url": "https://api.github.com/users/CapOfCats/followers",
+          "following_url": "https://api.github.com/users/CapOfCats/following{/other_user}",
+          "gists_url": "https://api.github.com/users/CapOfCats/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/CapOfCats/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/CapOfCats/subscriptions",
+          "organizations_url": "https://api.github.com/users/CapOfCats/orgs",
+          "repos_url": "https://api.github.com/users/CapOfCats/repos",
+          "events_url": "https://api.github.com/users/CapOfCats/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/CapOfCats/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "comments": 0,
+        "review_comments": 0,
+        "maintainer_can_modify": false,
+        "commits": 1,
+        "additions": 12,
+        "deletions": 7,
+        "changed_files": 1
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/pulls/1/reviews",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:09:59.6990083+03:00",
+      "response": []
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/daniil-novel/HighlandTech/tags",
+      "authentication": "public unauthenticated HTTP request",
+      "http_status": 200,
+      "saved_at": "2026-10-19T17:09:59.8747113+03:00",
+      "response": []
+    }
+  ],
+  "interpretation_limit": "These observations establish the inspected snapshot and public settings at capture. They do not establish the absence of undisclosed code elsewhere, runtime vulnerabilities, successful execution, complete security, or absence of informal review. Later documentation changes do not turn proposed checks into completed tests."
+}

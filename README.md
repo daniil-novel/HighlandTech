@@ -1,93 +1,58 @@
-# HighlandTech
+# HighlandTech / DaSHorter
 
+Учебный проект Даниила Дарагана и Даниила Привезенцева по курсу [«Разработка безопасного ПО»](https://github.com/hse-rbpo-master-2026/course). В репозитории разработана методика Secure SDLC для DaSHorter — учебного сервиса коротких ссылок на Python/FastAPI с SQLite, передачей согласованных query-параметров, TTL и отзывом ссылки по секретному токену. Расчётный продуктовый выпуск — `v1.0-rc1`.
 
+## Назначение и границы работы
 
-## Getting started
+Методика связывает активы и риски продукта с требованиями, практиками NIST SSDF, обязанностями двух участников, проверкой изменений, решением о выпуске и обработкой найденных проблем. Основное внимание уделено разделу 4 [project.md](project.md): какие действия выполняются, в какой ситуации, кто проверяет результат и какое свидетельство нужно для следующего решения.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Граница текущей итерации — проектирование Secure SDLC для условного продукта с заданными функциями. Репозиторий содержит методические материалы и примеры конфигураций; реализация приложения и её запуск не входят в эту работу. Проверки поведения кода, SAST/SCA и готовность продуктового выпуска не заявляются как полученные результаты. [Инвентаризация от 19.10.2026](evidence/repository-audit.md) фиксирует доступные файлы, историю и публичные настройки GitHub; отсутствие исполняемого компонента само по себе не является дефектом выбранной методики.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Материалы проекта
 
-## Add your files
+- [project.md](project.md) — паспорт, методологическая основа, текущее состояние, целевой Secure SDLC и профиль проверок.
+- [Требования курса](docs/course-guide.md) и [сопоставление проекта с курсом](docs/course-alignment.md).
+- [Подготовка к защите](docs/defense-notes.md) — ключевые решения, свидетельства и открытые вопросы.
+- [evidence/](evidence/) — сохранённые свидетельства; [repository-audit.json](evidence/repository-audit.json) содержит команды Git и ответы публичного GitHub API.
+- [Страница Даниила Привезенцева](individual/privezentsev.md) и [страница Даниила Дарагана](individual/daragan.md) — вклад участников и границы его подтверждения.
+- [chernoviki_obsujdeniy/](chernoviki_obsujdeniy/) — сохранённые первоначальные карточки сравнения методологических рамок.
+- [requirements.txt](requirements.txt), [Dockerfile](Dockerfile), [docker-compose.yml](docker-compose.yml) — примеры окружения, используемые при обсуждении зависимостей, сборки и условий будущих проверок.
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Теги `ek1` и `ek2` обозначают комплекты для оценивания, а продуктовый тег `v1.0` — отдельное решение о выпуске. В проверенном исходном состоянии тегов нет. Фактические сроки и загрузка архива определяются заданием ЭИОС.
 
-```
-cd existing_repo
-git remote add origin https://git.cs.hse.ru/dddaragan/HighlandTech.git
-git branch -M main
-git push -uf origin main
-```
+## Как применять методику
 
-## Integrate with your tools
+1. Согласовать границы продукта, защищаемые активы и конкретное свойство безопасности: например, входящий query не меняет адрес назначения, а чужой SecretToken не позволяет отозвать ссылку.
+2. Выбрать относящиеся к этому свойству положения SSDF и объяснить адаптацию под пару Backend + QA/SDET.
+3. Отделить подтверждённые наблюдения от предположений и запланированных действий. По каждому существенному разрыву определить требуемое изменение процесса.
+4. Пройти путь изменения из раздела 4: рабочая ветка → проверка вторым участником → применимые проверки → решение о слиянии → отдельная точка решения о выпуске.
+5. Задать вид ожидаемого свидетельства, его связь с версией продукта и условия остановки. Если результат отсутствует, оформить открытый вопрос; если правило нельзя выполнить вовремя — запрос на ограниченное исключение с причиной, риском, мерой и сроком.
+6. При получении сообщения о проблеме установить затронутую версию, выбрать исправление или временную меру, проверить результат и пересмотреть правило, которое позволило дефекту повториться.
 
-* [Set up project integrations](https://git.cs.hse.ru/dddaragan/HighlandTech/-/settings/integrations)
+Профиль проверок остаётся применимым к будущей реализации: URL-валидация, передача query, SecretToken, TTL и состав зависимостей. Методика определяет, зачем и когда нужна проверка, как интерпретировать результат и кто принимает решение. Конкретный инструмент выбирается по предмету проверки и возможностям команды.
 
-## Collaborate with your team
+## Какие свидетельства предусмотрены
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+| Ситуация | Ожидаемый результат и решение |
+|---|---|
+| Уточнение требования к URL или токену | Описание проверяемого свойства, допустимых и недопустимых случаев, замечания партнёра и согласованное изменение документа |
+| Изменение логики API | PR с затронутым свойством, SHA, review второго участника, результатами выбранных сценариев и решением по замечаниям |
+| Обновление зависимости или образа | Точный состав и версии, SHA/digest, область и дата анализа, версия инструмента, разбор существенных находок |
+| Подготовка продуктового выпуска | Комплект оснований для одной версии, открытые вопросы, остаточный риск и решение обоих участников |
+| Исправление серьёзного или повторного дефекта | Связь сообщения, причины, исправления и повторной проверки; изменение профилактического правила или регрессионного сценария |
 
-## Test and Deploy
+Таблица описывает предусмотренные методикой артефакты. Уже полученные свидетельства текущей итерации — инвентаризация репозитория и ответы публичного GitHub API в [evidence/](evidence/). Запланированный тест, пустой отчёт и само наличие конфигурации не подтверждают проверенное свойство продукта.
 
-Use the built-in continuous integration in GitLab.
+## Проверяемость документации
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+При review документации проверяются точность ссылок на стандарты, применимость действий к DaSHorter, согласованность ролей, различие между слиянием и выпуском, полномочия на исключения и границы выводов. Полные команды инвентаризации и ссылки на API приведены в [аудите](evidence/repository-audit.md). Публичные настройки GitHub изменяемы: новые наблюдения сохраняются отдельно с датой.
 
-***
+Каждый участник должен уметь объяснить цепочку «риск → практика → действие → свидетельство → решение» для своей части и проверить существенную часть работы партнёра. Инвентаризация и подготовленный текст не заменяют такой проверки.
 
-# Editing this README
+## Внесение изменений
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Работа ведётся в отдельной ветке от актуальной `main` через Pull Request. В PR указываются цель, затронутые требования и риски, проверенный SHA, результаты применимых проверок и оставшиеся ограничения. Второй участник проверяет значимые изменения; автор не выдаёт собственное одобрение за независимое review. Для документации проверяются факты, ссылки, согласованность требований и различие между планом и выполненной работой.
 
-## Suggestions for a good README
+Запрет прямого push и обязательное review — целевые правила проекта. На 19.10.2026 публичный GitHub API показывает, что `main` не защищена, rulesets отсутствуют, GitHub Actions не запускались. До подтверждения технических ограничений правила требуют явного ручного соблюдения. Отсутствующий или неуспешный обязательный результат останавливает следующий шаг.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Слияние PR и выпуск продукта — разные решения. Выпуск рассматривается обоими участниками только для определённого коммита и состава артефактов с доступными результатами проверок. Порядок исключений, блокирующих условий и обработки сообщений о проблемах описан в разделе 4 [project.md](project.md).
